@@ -1,5 +1,5 @@
 <?php
-$development_mode = true;
+$development_mode = false;
 $application_name = "core";
 $application_url  = "://localhost";
 $cach = false;
