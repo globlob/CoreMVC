@@ -114,32 +114,6 @@ class Arr
     }
 
     /**
-     * Fetch a flattened array of a nested array element.
-     *
-     * @param  array   $array
-     * @param  string  $key
-     * @return array
-     *
-     * @deprecated since version 5.1. Use pluck instead.
-     */
-    public static function fetch($array, $key)
-    {
-        foreach (explode('.', $key) as $segment) {
-            $results = [];
-
-            foreach ($array as $value) {
-                if (array_key_exists($segment, $value = (array) $value)) {
-                    $results[] = $value[$segment];
-                }
-            }
-
-            $array = array_values($results);
-        }
-
-        return array_values($results);
-    }
-
-    /**
      * Return the first element in an array passing a given truth test.
      *
      * @param  array  $array
@@ -205,6 +179,8 @@ class Arr
 
                 if (isset($array[$part]) && is_array($array[$part])) {
                     $array = &$array[$part];
+                } else {
+                    $parts = [];
                 }
             }
 
@@ -234,7 +210,7 @@ class Arr
         }
 
         foreach (explode('.', $key) as $segment) {
-            if (!is_array($array) || !array_key_exists($segment, $array)) {
+            if (! is_array($array) || ! array_key_exists($segment, $array)) {
                 return value($default);
             }
 
@@ -262,7 +238,7 @@ class Arr
         }
 
         foreach (explode('.', $key) as $segment) {
-            if (!is_array($array) || !array_key_exists($segment, $array)) {
+            if (! is_array($array) || ! array_key_exists($segment, $array)) {
                 return false;
             }
 
@@ -340,7 +316,7 @@ class Arr
      */
     protected static function explodePluckParameters($value, $key)
     {
-        $value = is_array($value) ? $value : explode('.', $value);
+        $value = is_string($value) ? explode('.', $value) : $value;
 
         $key = is_null($key) || is_array($key) ? $key : explode('.', $key);
 
@@ -388,7 +364,7 @@ class Arr
             // If the key doesn't exist at this depth, we will just create an empty array
             // to hold the next value, allowing us to create the arrays to hold final
             // values at the correct depth. Then we'll keep digging into the array.
-            if (!isset($array[$key]) || !is_array($array[$key])) {
+            if (! isset($array[$key]) || ! is_array($array[$key])) {
                 $array[$key] = [];
             }
 

@@ -21,29 +21,21 @@ use Symfony\Component\Translation\MessageCatalogue;
 class XliffFileDumper extends FileDumper
 {
     /**
-     * @var string
-     */
-    private $defaultLocale;
-
-    /**
      * {@inheritdoc}
      */
-    public function dump(MessageCatalogue $messages, $options = array())
+    protected function formatCatalogue(MessageCatalogue $messages, $domain, array $options = array())
     {
         if (array_key_exists('default_locale', $options)) {
-            $this->defaultLocale = $options['default_locale'];
+            $defaultLocale = $options['default_locale'];
         } else {
-            $this->defaultLocale = \Locale::getDefault();
+            $defaultLocale = \Locale::getDefault();
         }
 
-        parent::dump($messages, $options);
-    }
+        $toolInfo = array('tool-id' => 'symfony', 'tool-name' => 'Symfony');
+        if (array_key_exists('tool_info', $options)) {
+            $toolInfo = array_merge($toolInfo, $options['tool_info']);
+        }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function format(MessageCatalogue $messages, $domain)
-    {
         $dom = new \DOMDocument('1.0', 'utf-8');
         $dom->formatOutput = true;
 
@@ -52,10 +44,16 @@ class XliffFileDumper extends FileDumper
         $xliff->setAttribute('xmlns', 'urn:oasis:names:tc:xliff:document:1.2');
 
         $xliffFile = $xliff->appendChild($dom->createElement('file'));
-        $xliffFile->setAttribute('source-language', str_replace('_', '-', $this->defaultLocale));
+        $xliffFile->setAttribute('source-language', str_replace('_', '-', $defaultLocale));
         $xliffFile->setAttribute('target-language', str_replace('_', '-', $messages->getLocale()));
         $xliffFile->setAttribute('datatype', 'plaintext');
         $xliffFile->setAttribute('original', 'file.ext');
+
+        $xliffHead = $xliffFile->appendChild($dom->createElement('header'));
+        $xliffTool = $xliffHead->appendChild($dom->createElement('tool'));
+        foreach ($toolInfo as $id => $value) {
+            $xliffTool->setAttribute($id, $value);
+        }
 
         $xliffBody = $xliffFile->appendChild($dom->createElement('body'));
         foreach ($messages->all($domain) as $source => $target) {
@@ -70,11 +68,17 @@ class XliffFileDumper extends FileDumper
             // Does the target contain characters requiring a CDATA section?
             $text = 1 === preg_match('/[&<>]/', $target) ? $dom->createCDATASection($target) : $dom->createTextNode($target);
 
-            $t = $translation->appendChild($dom->createElement('target'));
+            $targetElement = $dom->createElement('target');
+            $metadata = $messages->getMetadata($source, $domain);
+            if ($this->hasMetadataArrayInfo('target-attributes', $metadata)) {
+                foreach ($metadata['target-attributes'] as $name => $value) {
+                    $targetElement->setAttribute($name, $value);
+                }
+            }
+            $t = $translation->appendChild($targetElement);
             $t->appendChild($text);
 
-            $metadata = $messages->getMetadata($source, $domain);
-            if (null !== $metadata && array_key_exists('notes', $metadata) && is_array($metadata['notes'])) {
+            if ($this->hasMetadataArrayInfo('notes', $metadata)) {
                 foreach ($metadata['notes'] as $note) {
                     if (!isset($note['content'])) {
                         continue;
@@ -102,8 +106,27 @@ class XliffFileDumper extends FileDumper
     /**
      * {@inheritdoc}
      */
+    protected function format(MessageCatalogue $messages, $domain)
+    {
+        return $this->formatCatalogue($messages, $domain);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function getExtension()
     {
         return 'xlf';
+    }
+
+    /**
+     * @param string     $key
+     * @param array|null $metadata
+     *
+     * @return bool
+     */
+    private function hasMetadataArrayInfo($key, $metadata = null)
+    {
+        return null !== $metadata && array_key_exists($key, $metadata) && ($metadata[$key] instanceof \Traversable || is_array($metadata[$key]));
     }
 }

@@ -1,68 +1,5 @@
 [
     {
-        "name": "symfony/translation",
-        "version": "v2.7.3",
-        "version_normalized": "2.7.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/Translation.git",
-            "reference": "c8dc34cc936152c609cdd722af317e4239d10dd6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Translation/zipball/c8dc34cc936152c609cdd722af317e4239d10dd6",
-            "reference": "c8dc34cc936152c609cdd722af317e4239d10dd6",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.9"
-        },
-        "conflict": {
-            "symfony/config": "<2.7"
-        },
-        "require-dev": {
-            "psr/log": "~1.0",
-            "symfony/config": "~2.7",
-            "symfony/intl": "~2.3",
-            "symfony/phpunit-bridge": "~2.7",
-            "symfony/yaml": "~2.2"
-        },
-        "suggest": {
-            "psr/log": "To use logging capability in translator",
-            "symfony/config": "",
-            "symfony/yaml": ""
-        },
-        "time": "2015-07-09 16:07:40",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.7-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Translation\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Translation Component",
-        "homepage": "https://symfony.com"
-    },
-    {
         "name": "nesbot/carbon",
         "version": "1.20.0",
         "version_normalized": "1.20.0.0",
@@ -112,9 +49,116 @@
         ]
     },
     {
+        "name": "symfony/translation",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Translation.git",
+            "reference": "85d988ddb56ab2b6df531c9914929df66ee0cc5d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Translation/zipball/85d988ddb56ab2b6df531c9914929df66ee0cc5d",
+            "reference": "85d988ddb56ab2b6df531c9914929df66ee0cc5d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "conflict": {
+            "symfony/config": "<2.8"
+        },
+        "require-dev": {
+            "psr/log": "~1.0",
+            "symfony/config": "~2.8|~3.0",
+            "symfony/intl": "~2.8|~3.0",
+            "symfony/phpunit-bridge": "~2.8|~3.0",
+            "symfony/yaml": "~2.8|~3.0"
+        },
+        "suggest": {
+            "psr/log": "To use logging capability in translator",
+            "symfony/config": "",
+            "symfony/yaml": ""
+        },
+        "time": "2015-09-10 08:18:49",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Translation\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Translation Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "illuminate/contracts",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/contracts.git",
+            "reference": "3aa2fe872e4df4fee8fb780f44b6237ad3714a4f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/contracts/zipball/3aa2fe872e4df4fee8fb780f44b6237ad3714a4f",
+            "reference": "3aa2fe872e4df4fee8fb780f44b6237ad3714a4f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "time": "2015-08-31 15:48:47",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.2-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Contracts\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            }
+        ],
+        "description": "The Illuminate Contracts package.",
+        "homepage": "http://laravel.com"
+    },
+    {
         "name": "danielstjules/stringy",
-        "version": "1.10.0",
-        "version_normalized": "1.10.0.0",
+        "version": "1.x-dev",
+        "version_normalized": "1.9999999.9999999.9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/danielstjules/Stringy.git",
@@ -135,7 +179,7 @@
         },
         "time": "2015-07-23 00:54:12",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Stringy\\": "src/"
@@ -171,17 +215,17 @@
     },
     {
         "name": "doctrine/inflector",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/doctrine/inflector.git",
-            "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604"
+            "reference": "a081a0c2f14486254464f1a657595f5a6b3092f4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604",
-            "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604",
+            "url": "https://api.github.com/repos/doctrine/inflector/zipball/a081a0c2f14486254464f1a657595f5a6b3092f4",
+            "reference": "a081a0c2f14486254464f1a657595f5a6b3092f4",
             "shasum": ""
         },
         "require": {
@@ -190,14 +234,14 @@
         "require-dev": {
             "phpunit/phpunit": "4.*"
         },
-        "time": "2014-12-20 21:24:13",
+        "time": "2015-09-02 15:55:05",
         "type": "library",
         "extra": {
             "branch-alias": {
                 "dev-master": "1.0.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-0": {
                 "Doctrine\\Common\\Inflector\\": "lib/"
@@ -239,83 +283,39 @@
         ]
     },
     {
-        "name": "illuminate/contracts",
-        "version": "v5.1.8",
-        "version_normalized": "5.1.8.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/illuminate/contracts.git",
-            "reference": "140dd18acb6be297fbd9870f8dda9d9d0a17c460"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/contracts/zipball/140dd18acb6be297fbd9870f8dda9d9d0a17c460",
-            "reference": "140dd18acb6be297fbd9870f8dda9d9d0a17c460",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "time": "2015-07-14 01:36:14",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.1-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Illuminate\\Contracts\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylorotwell@gmail.com"
-            }
-        ],
-        "description": "The Illuminate Contracts package.",
-        "homepage": "http://laravel.com"
-    },
-    {
         "name": "illuminate/support",
-        "version": "v5.1.8",
-        "version_normalized": "5.1.8.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/support.git",
-            "reference": "2ba8a22a554aee9a412baa2e16e4387262d6d57c"
+            "reference": "b3713cdfe1a0e3fc2d9dfa9d0b0b4792ea519f58"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/support/zipball/2ba8a22a554aee9a412baa2e16e4387262d6d57c",
-            "reference": "2ba8a22a554aee9a412baa2e16e4387262d6d57c",
+            "url": "https://api.github.com/repos/illuminate/support/zipball/b3713cdfe1a0e3fc2d9dfa9d0b0b4792ea519f58",
+            "reference": "b3713cdfe1a0e3fc2d9dfa9d0b0b4792ea519f58",
             "shasum": ""
         },
         "require": {
             "danielstjules/stringy": "~1.8",
             "doctrine/inflector": "~1.0",
             "ext-mbstring": "*",
-            "illuminate/contracts": "5.1.*",
+            "illuminate/contracts": "5.2.*",
             "php": ">=5.5.9"
         },
         "suggest": {
             "jeremeamia/superclosure": "Required to be able to serialize closures (~2.0).",
-            "symfony/var-dumper": "Required to use the dd function (2.7.*)."
+            "symfony/var-dumper": "Required to use the dd function (3.0.*)."
         },
-        "time": "2015-07-20 16:31:36",
+        "time": "2015-09-09 21:55:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "5.1-dev"
+                "dev-master": "5.2-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Illuminate\\Support\\": ""
@@ -339,31 +339,31 @@
     },
     {
         "name": "illuminate/container",
-        "version": "v5.1.8",
-        "version_normalized": "5.1.8.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/container.git",
-            "reference": "248cd26c38d1e29eac74d32d9fff158b2232a3c6"
+            "reference": "78d39f951b14b8e47ce1eea7d78971d63abfb4cf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/container/zipball/248cd26c38d1e29eac74d32d9fff158b2232a3c6",
-            "reference": "248cd26c38d1e29eac74d32d9fff158b2232a3c6",
+            "url": "https://api.github.com/repos/illuminate/container/zipball/78d39f951b14b8e47ce1eea7d78971d63abfb4cf",
+            "reference": "78d39f951b14b8e47ce1eea7d78971d63abfb4cf",
             "shasum": ""
         },
         "require": {
-            "illuminate/contracts": "5.1.*",
+            "illuminate/contracts": "5.2.*",
             "php": ">=5.5.9"
         },
-        "time": "2015-06-13 00:40:15",
+        "time": "2015-08-28 12:40:38",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "5.1-dev"
+                "dev-master": "5.2-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Illuminate\\Container\\": ""
@@ -384,41 +384,41 @@
     },
     {
         "name": "illuminate/database",
-        "version": "v5.1.8",
-        "version_normalized": "5.1.8.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/database.git",
-            "reference": "ad33fd28df334f248b97cd7ffd747b78635ec0c4"
+            "reference": "088f895e54bd15f0e49c0843fdf61861b9bbcc33"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/database/zipball/ad33fd28df334f248b97cd7ffd747b78635ec0c4",
-            "reference": "ad33fd28df334f248b97cd7ffd747b78635ec0c4",
+            "url": "https://api.github.com/repos/illuminate/database/zipball/088f895e54bd15f0e49c0843fdf61861b9bbcc33",
+            "reference": "088f895e54bd15f0e49c0843fdf61861b9bbcc33",
             "shasum": ""
         },
         "require": {
-            "illuminate/container": "5.1.*",
-            "illuminate/contracts": "5.1.*",
-            "illuminate/support": "5.1.*",
-            "nesbot/carbon": "~1.19",
+            "illuminate/container": "5.2.*",
+            "illuminate/contracts": "5.2.*",
+            "illuminate/support": "5.2.*",
+            "nesbot/carbon": "~1.20",
             "php": ">=5.5.9"
         },
         "suggest": {
             "doctrine/dbal": "Required to rename columns and drop SQLite columns (~2.4).",
             "fzaninotto/faker": "Required to use the eloquent factory builder (~1.4).",
-            "illuminate/console": "Required to use the database commands (5.1.*).",
-            "illuminate/events": "Required to use the observers with Eloquent (5.1.*).",
-            "illuminate/filesystem": "Required to use the migrations (5.1.*)."
+            "illuminate/console": "Required to use the database commands (5.2.*).",
+            "illuminate/events": "Required to use the observers with Eloquent (5.2.*).",
+            "illuminate/filesystem": "Required to use the migrations (5.2.*)."
         },
-        "time": "2015-07-20 16:50:34",
+        "time": "2015-09-10 01:52:45",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "5.1-dev"
+                "dev-master": "5.2-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Illuminate\\Database\\": ""

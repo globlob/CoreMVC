@@ -1,4 +1,13 @@
 {
+    "name": "tolgabulca/coremvc",
+    "description": "PHP MVC FRAMEWORK",
+    "authors": [
+        {
+            "name": "Tolga Bulca",
+            "email": "tolgabulca@live.com"
+        }
+    ],
+    "minimum-stability": "dev",
     "require": {
         "illuminate/database": "^5.1"
     },

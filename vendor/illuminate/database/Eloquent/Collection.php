@@ -85,19 +85,6 @@ class Collection extends BaseCollection
     }
 
     /**
-     * Fetch a nested element of the collection.
-     *
-     * @param  string  $key
-     * @return static
-     *
-     * @deprecated since version 5.1. Use pluck instead.
-     */
-    public function fetch($key)
-    {
-        return new static(Arr::fetch($this->toArray(), $key));
-    }
-
-    /**
      * Get the array of primary keys.
      *
      * @return array
@@ -137,7 +124,7 @@ class Collection extends BaseCollection
         $dictionary = $this->getDictionary($items);
 
         foreach ($this->items as $item) {
-            if (!isset($dictionary[$item->getKey()])) {
+            if (! isset($dictionary[$item->getKey()])) {
                 $diff->add($item);
             }
         }
@@ -174,7 +161,7 @@ class Collection extends BaseCollection
      */
     public function unique($key = null)
     {
-        if (!is_null($key)) {
+        if (! is_null($key)) {
             return parent::unique($key);
         }
 
