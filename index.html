@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="col-md-3">
+        <ul class="navigat">
+            <li><a href="#Welcome to Core Framework">Welcome to Core Framework</a> </li>
+            <li><a href="#Install - Setup">Install - Setup</a> </li>
+            <li><a href="#General">General</a>
+                <ul>
+                    <li><a href="#Controllers">Controllers</a></li>
+                    <li><a href="#Views">Views</a></li>
+                    <li><a href="#Views">Models</a></li>
+                    <li><a href="#Database Settings">Database Settings</a></li>
+                    <li><a href="#ORM">ORM</a></li>
+                </ul>
+            </li>
+            <li><a href="#General">Widgets</a>
+                <ul>
+                    <li><a href="#Cache">Cache</a></li>
+                    <li><a href="#Cache">Form</a></li>
+                    <li><a href="#Cache">Log</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-8 gop">
+
+        <h1 id='Welcome to Core Framework'>Welcome to Core Framework</h1><hr>
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mi massa, gravida id lectus sed, aliquet posuere metus.
+        Curabitur faucibus lorem id turpis dignissim dapibus. Sed et ipsum nulla. Nunc risus nibh, scelerisque nec ipsum id,
+        fermentum elementum purus. Sed ac fermentum velit, porta posuere orci. Donec mollis leo a erat placerat tincidunt. Etiam
+        placerat, nulla non finibus tristique, mauris elit viverra mauris, in aliquam velit est eget magna. Etiam luctus tristique
+        odio sed fermentum. Vestibulum pellentesque imperdiet quam
+
+        <h2 id='Core Framework is right for me?'>Core Framework is right for me?</h2>
+        <h3>If</h3>
+        <ul>
+            <li>You are new on MVC structure</li>
+            <li>You aren't working on very complex big application</li>
+            <li>You wanna develop a new <b>PHP MVC</b> framework</li>
+            <li>You wanna learn MVC structure</li>
+            <li>You wanna make easy your projects</li>
+        </ul>
+        <h3>Yes, Core Framework is right for you</h3>
+        <h1 id='Install - Setup'>Install - Setup</h1><hr>
+        Core FW give 3 options to you
+        <h3>With Composer</h3>
+        If you will use composer you only need 2 steps:
+        <ul>
+            <li>Open your command-line tool(Terminal) and go to target folder with <b>cd</b> command</li>
+            <li>And write on consol this : <b>composer create-project tolgabulca/coremvc</b></li>
+        </ul>
+        <h3>With Git</h3>
+        If you don't have composer but you have Git you only need 2 steps:
+        <ul>
+            <li>Open your command-line tool(Terminal) and go to target folder with <b>cd</b> command</li>
+            <li>And write on consol this : <b>git clone https://github.com/tolgabulca/CoreMVC.git</b></li>
+        </ul>
+        <h3>With Git</h3>
+        If you don't have composer and git you need 4 steps:
+        <ul>
+            <li>Open your browser and write this: https://github.com/tolgabulca/CoreMVC</li>
+            <li>You must see <b>Download ZIP</b> button click on it</li>
+            <li>Open the ZIP file on target folder</li>
+        </ul>
+        <div class='alert alert-info' role='alert'>Core only works on a LAMP folder like <b>xampp/htdocs</b></div>
+
+        <h1 id='General'>General</h1><hr>
+
+        <h2 id='Controllers'>Controllers</h2>
+        Controllers are the 'back-end' files of your application. You can handle HTTP request's and you can connect model to view.
+        <h3>Root File:</h3>
+        Your root file '/' is always must be 'home.php'
+        <h3>File naming:</h3>
+        Your file name must be same as your class name.
+        <h3>First Try:</h3>
+        Let's create your first app with a controller; create a file and rename to 'hello.php' and let's write some code:
+<pre><code class='php'>
+    class Hello extends Controller {
+    public function index(){
+    echo 'Hello World';
+    }
+    }
+</code></pre>
+        Now visit your site using this URL: <br> <b>example.com/hello</b> <br>
+        If you see <b>Hello World</b> you made it right
+
+        <h3>Methods</h3>
+        Of course you need more than one method in your controller. The <b>index()</b> method is root method of your controller file.
+        Don't need write method name on adress bar if you are in <b>index()</b> method. But else you need write method name on adress
+        bar like this: <br>
+        <b>example.com/Hello/Method</b> <br>
+        Let's create a method:
+<pre><code class='php'>
+    class Hello extends Controller {
+    public function index(){
+    echo 'Hello World';
+    }
+    public function say_hi($name = ''){
+    echo 'Hi $name';
+    }
+    }
+</code></pre>
+        Okey, you will receive <b>name</b> with 'parameter' you will accept dozens of parameters in your method and how do you use it
+        if you want.
+
+
+        <h2 id='Views'>Views</h2>
+        Views are the skin of your application and formed only HTML,JS,CSS and some PHP you don't need write complex code.
+        <h3>Create a View</h3>
+        You just write standart HTML tags with your code editor and save it on <b>app/views</b> folder
+
+        <h3>Call Views</h3>
+        Call <b>views</b> with this method: <b>$this->view()</b> <br>
+        An example:
+<pre><code class='php'>
+    class Home extends Controller{
+    public function index($name = ''){
+    $data = ['text'=> $name];
+    $this->view('home/index',$data);
+    }
+    }</code></pre>
+
+        <h3>Using Multiple Views</h3>
+        You can use multiple view in Controller file:
+<pre><code class='php'>
+    class Home extends Controller{
+    public function index($name = ''){
+    $data = ['text'=> $name];
+    $this->view('home/header');
+    $this->view('home/index',$data);
+    $this->view('home/footer');
+    }
+    }</code></pre>
+
+
+        <h3>Send data to Views</h3>
+        A task is controller file separate php codes to html,too. If you need send data to view you must be use $data array like this:
+<pre><code class='php'>$data = ['text'=> $name];
+    $this->view('home/index',$data);
+</code></pre>
+        <div class='alert alert-info' role='alert'><b>Only submit data to view if you need</b></div>
+        And use the data like this:
+        <pre><code class='php'>echo $data['text']</code></pre>
+
+        <h2 id='Models'>Models</h2>
+        Models are brain of your application. They are tasks the the data.
+        This is a model structure:
+<pre><code class='php'>
+    use Illuminate\Database\Eloquent\Model as Eloquent;
+    class Home extends Eloquent
+    {
+    protected $table = 'book';
+    protected $fillable = ['id','msg'];
+
+    public function update_entry()
+    {
+    self::create(array('msg' => 'Hello'));
+    }
+    public function get_all_msg()
+    {
+    return self::all();
+    }
+    }
+</code></pre>
+        <h3>Anathomy</h3>
+        Models are stored in app/models folder. It is a basic example:
+<pre><code class='php'>
+    use Illuminate\Database\Eloquent\Model as Eloquent;
+    class Home extends Eloquent
+    {
+    protected $table = 'book';
+    }
+</code></pre>
+        Most of the time Eloquent find the table but sometimes you need add table name.
+        <h3>Call Model</h3>
+        Call models like this;
+<pre><code class='php'>
+    $this->model('home');
+</code></pre>
+        <div class='alert alert-info' role='alert'>If you call the model in <b>__construct</b> method you use it anywhere</div>
+
+
+        <h3>File naming:</h3>
+        Your file name must be same as your class name. <br>
+
+        Get more information from http://laravel.com/docs/4.2/eloquent
+        <h2 id='Database Settings'>Database Settings</h2>
+        You will edit the database settings on <b>app/config/database.php</b>:
+<pre><code class='php'>$capsule->addConnection([
+    //Database Driver
+    'driver' => 'mysql',
+    //Your host name
+    'host' => 'localhost',
+    //Database user name
+    'username' => 'root',
+    //Database password
+    'password' => '',
+    //Database name
+    'database' => 'rr',
+    //Charset
+    'charset' => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    //Table prefix(optional)
+    'prefix' => '',
+    ]);
+</code></pre>
+
+
+        <h2 id='ORM'>ORM</h2>
+        Core FW using Eloquent ORM get more information at : http://laravel.com/docs/4.2/eloquent
+
+
+        <h1 id='Widgets'>Widgets</h1><hr>
+        Widgets the helpers of your applications. Make easy your works.
+        <h3>Call Widgets</h3>
+        Call <b>widgets</b> with this method: <b>$this->getWidget('widget')</b> <br>
+        An example:
+<pre><code class='php'>
+    class Home extends Controller{
+    public function index(){
+    $this->getWidget('form');
+    }
+    }</code></pre>
+        <div class='alert alert-info' role='alert'>If you call the widget in <b>__construct</b> method you use it anywhere</div>
+
+        <h3>Using Multiple Widgets</h3>
+        You can use multiple view in Controller file:
+<pre><code class='php'>
+    class Home extends Controller{
+    public function index(){
+    $this->getWidget('form');
+    $this->getWidget('cache');
+    $this->getWidget('log');
+    }
+    }</code></pre>
+
+
+
+        <h2 id='Cache'>Cache</h2>
+        Caching is sometimes recover you dozens of bytes.
+        <h3>Call Cache</h3>
+        Call <b>cache</b> with this method: <b>$this->getWidget('cache')</b> <br>
+        An example:
+<pre><code class='php'>
+    class Home extends Controller{
+    public function index(){
+    $this->getWidget('cache');
+    }
+    }</code></pre>
+        <div class='alert alert-info' role='alert'>Cache files stored in <b>app/cache</b> folder</div>
+        <h3>Usage</h3>
+        Cache widget usage more harder then other widgets but more optional.
+<pre><code class='php'>
+    class Home extends Controller{
+    public function __construct(){
+    $this->getWidget('cache');
+    }
+    public function index($name = ''){
+    $data = ['text'=> $name];
+    <b>$cache = new cache();
+        $cache->app_url = '';
+        $cache->caching = false;
+        $cache->cacheStart();</b>
+    $this->view('home/index',$data);
+    <b>$cache->cacheEnd();</b>
+    }
+    }
+</code></pre>
+        There are 3 parameters <b>cache_time</b>,<b>app_url</b> and <b>caching</b>; <br>
+        <ul>
+            <li><b>cachetime:</b> This parameter determine how often renewed cache file. <br></li>
+            <li><b>app_url:</b> This parameter is name your application folder if you stored application in root leave this parameter empty. <br></li>
+            <li><b>caching:</b> Sometimes you don't need caching or stop cache like dynamic page. Use 'caching' parameter if cache parameter equals false stop caching <br> <br></li>
+        </ul>
+        There are 2 methods <b>cacheStart</b> and <b>cacheEnd</b>; <br>
+        <ul>
+            <li><b>cacheStart:</b> This method start caching <br></li>
+            <li><b>cacheEnd:</b> This method end caching <br></li>
+        </ul>
+        <div class='alert alert-info' role='alert'>Cached files are saved md5 names you don't find file name</div>
+
+
+        <h2 id='Form'>Form</h2>
+
+        A widget for make easy build HTML forms.
+        <h3>Call Form Widget</h3>
+        Call <b>cache</b> with this method: <b>$this->getWidget('form')</b> <br>
+        An example:
+<pre><code class='php'>
+    class Home extends Controller{
+    public function index(){
+    $this->getWidget('form');
+    }
+    }</code></pre>
+        <h3>Usage</h3>
+        Form widget use in view files. Like this:
+<pre><code class='php'>
+    echo openForm('POST','#');
+    echo input('text','username','','pleaceholder="Username"');
+    echo input('password','password','','pleaceholder="Password"');
+    echo input('submit','','Sent');
+    echo closeForm();
+</code></pre>
+
+        There are 5 methods <b>openForm()</b>, <b>input()</b>,<b>textarea()</b>,<b>openFormMultipart</b> and <b>closeForm()</b> <br> <br>
+        <ul>
+            <li><b>openForm:</b> This method start the form <br></li>
+            <ul>
+                <li><b>method</b>: This parameter is a option for select sending HTTP REQUEST</li>
+                <li><b>action</b>: This parameter is a option for select sending data to which file</li>
+                <li><b>att</b>: Other attributes</li>
+            </ul>
+            <li><b>input:</b> This method add a form input <br></li>
+            <ul>
+                <li><b>type</b>: This parameter is a option for select input type</li>
+                <li><b>name</b>: This parameter is a option for select input name</li>
+                <li><b>value</b>: This parameter is a option for select input value</li>
+                <li><b>att</b>: Other attributes</li>
+            </ul>
+            <li><b>textarea:</b> This method add a textarea <br></li>
+            <ul>
+                <li><b>name</b>: This parameter is a option for select textarea name</li>
+                <li><b>value</b>: This parameter is a option for select textarea value</li>
+                <li><b>att</b>: Other attributes</li>
+            </ul>
+            <li><b>openFormMultipart:</b> This method start a multipart form <br></li>
+            <ul>
+                <li><b>method</b>: This parameter is a option for select sending HTTP REQUEST</li>
+                <li><b>action</b>: This parameter is a option for select sending data to which file</li>
+                <li><b>att</b>: Other attributes</li>
+            </ul>
+            <li><b>closeForm:</b> This method close the form <br></li>
+        </ul>
+        <h2 id='Log'>Log</h2>
+        Sometimes you need save all visitors IP. Log widgets help logging visitor IP.
+        <h3>Call Log Widget</h3>
+        Call <b>log</b> with this method: <b>$this->getWidget('log')</b> <br>
+        An example:
+<pre><code class='php'>
+    class Home extends Controller{
+    public function index(){
+    $this->getWidget('log');
+    }
+    }</code></pre>
+        <h3>Usage</h3>
+        Form widget use in view files. Like this:
+<pre><code class='php'>
+    class Home extends Controller{
+    public function index(){
+    _log_('header.php');
+    }
+    }
+</code></pre>
+        Maybe the easiest usage ever :D <br>
+        Only one parameter <b>logfile</b>: Name of your loging file.
+        <div class='alert alert-info' role='alert'> Everytime log files saved in <b>logs</b> folder</div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
